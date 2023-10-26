@@ -1,0 +1,163 @@
+
+<!doctype html>
+
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  <meta charset="UTF-8">
+  <title>Guía para asegurar una UEFI/BIOS</title>
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
+  <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://storage.googleapis.com/claat-public/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
+  <google-codelab codelab-gaid="ID de Google Analytics"
+                  id="BRSProyecto1"
+                  title="Guía para asegurar una UEFI/BIOS"
+                  environment="web"
+                  feedback-link="https://github.com/cromeoli/BRS_Proyecto1">
+    
+      <google-codelab-step label="Introducción" duration="0">
+        <p>Este documento ofrece una guía paso a paso ilustrada con capturas de pantalla para asegurar la BIOS/UEFI de un dispositivo con el objetivo de minimizar los riesgos que podría conllevar el no disponer de las suficientes medidas de seguridad.</p>
+<p>En este caso aplicaremos las medidas de seguridad a una placa base MSI Mortar Max B-450M con UEFI.</p>
+<p>En cualquier máquina el primer software que se ejecuta es la <em>BIOS</em> (<em>Basic Input Output System</em>), o <em>UEFI</em> (<em>Unified Extensible Firmware Interface</em>) lo que hoy por hoy más comúnmente encontramos en los equipos mas modernos, que consiste en una versión más moderna con características que mejoran la experiencia de usuario como mejores interfaces gráficas y funciones más avanzadas.</p>
+<p>Principalmente y sin entrar en detalles técnicos la <em>BIOS/UEFI</em> se encarga de reconocer e inicializar el hardware entre otras cosas.</p>
+<p>Un usuario con los conocimientos adecuados es capaz de saltarse la seguridad y por tanto vulnerar un equipo a través de la explotación de fallas y carencias en la seguridad de la <em>BIOS/UEFI</em>, esta guía aprenderemos algunas medidas para evitar en la medida de lo posible que esto ocurre.</p>
+<p>En las siguientes secciones detallaremos el proceso.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Acceso a la UEFI/BIOS del equipo" duration="5">
+        <p>Para configurar opciones de seguridad de nuestra BIOS/UEFI, primero debemos acceder a la misma.</p>
+<p>Para ello hacemos lo siguiente:</p>
+<p>Pulsamos repetidamente la tecla <code>SUPR</code> nada más encender el equipo. En otros modelos de placa base se accede pulsando repetidamente una tecla al iniciar que habitualmente suele ser <code>F10</code>, <code>F1</code> o <code>F2</code>.</p>
+<p>Si todo va bien debería de aparecer una pantalla similar a esta si tenemos una UEFI:</p>
+<p class="image-container"><img alt="MSI_SnapShot_01.bmp" src="img/49a281059e1b1ca.bmp"></p>
+<p>Y similar a esto si tenemos una BIOS:</p>
+<p class="image-container"><img alt="MSI_SnapShot_02.bmp" src="img/61bad43c56e96d7f.webp"></p>
+<p>Nota: Existen UEFI que aparecen con una interfaz gráfica de aspecto anticuado.</p>
+<p>En las secciones siguientes partiremos de esta pantalla para realizar distintas configuraciones de seguridad que nos ayudarán a minimizar el riesgo a lo que el equipo está expuesto.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Establecer contraseña de administración de la BIOS/UEFI" duration="10">
+        <p>Una de las primeras cosas que podemos hacer es establecer una contraseña de administrador que se solicitará cuando queramos entrar a hacer cambios en los parámetros de la BIOS.</p>
+<p>En nuestro caso como se mencionó en la introducción será una UEFI, concretamente de la placa MSI Mortar Max B450M.</p>
+<p>Para configurar una contraseña para la UEFI podemos seguir estos pasos:</p>
+<ol type="1">
+<li>Nos vamos a ajustes desde la pantalla principal de la UEFI haciendo click sobre el botón &#34;<em>settings</em>&#34;:<img alt="MSI_SnapShot_02.bmp" src="img/f8dc9888b98a17aa.bmp"></li>
+<li>Una vez dentro elegimos la opción seguridad:<img alt="MSI_SnapShot_03.bmp" src="img/8640ad54c184d9cb.bmp"></li>
+<li>En esta pantalla podemos comprobar que no existen ni contraseña de administrador ni de usuario en el texto que se encuentra sobre las opciones disponibles. De la contraseña de usuario hablaremos en la siguiente sección. De momento, en esta pantalla marcamos el área &#34;<em>Administrator password</em>&#34; y la seleccionamos.<img alt="MSI_SnapShot_04.bmp" src="img/a1b1388640a233f0.bmp"></li>
+<li>Aparecerá un diálogo para introducir una contraseña, simplemente la introducimos.<img alt="MSI_SnapShot_05.bmp" src="img/d4ffb225807473e6.bmp"></li>
+<li>En este punto ya tendremos establecido una contraseña de administrador para la bios. En la captura podemos ver como la línea &#34;<em>Administrator Password</em>&#34; arriba de las opciones se muestra como &#34;<em>Installed</em>&#34;.<img alt="MSI_SnapShot_06.bmp" src="img/ec7fde13f28dca33.bmp"></li>
+<li>La siguiente vez que intentemos entrar a la UEFI podremos comprobar como nos requiere contraseña <img alt="MSI_SnapShot_02.bmp" src="img/cf0937431edf944c.gif"></li>
+</ol>
+<p>Nota: La contraseña de administrador solo se requerirá cuando se intente entrar a la BIOS/UEFI</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Establecer una contraseña de usuario en la BIOS" duration="10">
+        <p>La contraseña de usuario nos servirá para requerir una contraseña al equipo completo, no solo al acceder a la bios, incluso antes de llegar a un posible menú de arranque.</p>
+<p>Esto añadirá una capa más de seguridad que, en conjunto con la contraseña de la UEFI, nos ayudará a minimizar los riesgos de que el equipo sea vulnerado.</p>
+<p>En nuestro caso podemos establecer una contraseña de usuario de la siguiente forma:</p>
+<ol type="1">
+<li>Accedemos a la sección de seguridad de nuestra UEFI de la misma forma que en la sección anterior.<img alt="MSI_SnapShot_02.bmp" src="img/f8dc9888b98a17aa.bmp"><img alt="MSI_SnapShot_02.bmp" src="img/8640ad54c184d9cb.bmp"><img alt="MSI_SnapShot_02.bmp" src="img/ec7fde13f28dca33.bmp"></li>
+<li>Una vez hayamos llegado a <em>Settings/Security</em>, donde introdujimos la contraseña de administrador, seleccionaremos esta vez <em>User Password</em> y nos aparecerá de nuevo una caja de diálogo para introducir nuestra contraseña:<img alt="MSI_SnapShot_02.bmp" src="img/c4fafc7b14671133.bmp"></li>
+<li>Una vez establecida podremos ver como el parámetro &#34;<em>User Password</em>&#34; se establece en &#34;<em>Installed</em>&#34;.<img alt="MSI_SnapShot_02.bmp" src="img/e02c06a8849bf18f.bmp"></li>
+<li>Con la contraseña de usuario establecida, lo ideal es activar la opción &#34;<em>Password Check</em>&#34; para que nada más encender el ordenador nos pida la contraseña, impidiendo el acceso al GRUB<img alt="MSI_SnapShot_02.bmp" src="img/301db6e201fb6bf6.bmp"><img alt="MSI_SnapShot_02.bmp" src="img/5a4066c94fb5e5e5.bmp"></li>
+<li>En este punto ya deberíamos tener la contraseña de usuario establecida, de manera que, cada vez que iniciemos el equipo nos requerirá la contraseña para acceder incluso al GRUB:</li>
+</ol>
+<p>Negative</p>
+<p>Nota: Este equipo parece tener un pequeño fallo de seguridad el cuál consiste en que, cuando se introduce la contraseña, se visualiza el último número que has introducido, de manera que si alguien te ve introducir la contraseña fácilmente puede robarla. Es conveniente que al escribir contraseñas lo que escribas aparezca formateado con caracteres como <code>*</code>  o que directamente no aparezca lo que escribas.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Restringir arranque desde dispositivos externos" duration="10">
+        <p>Podríamos encontrarnos la situación de que un atacante con intención de vulnerar nuestro equipo se encuentre que hemos aplicado medidas como la contraseña de administrador y de usuario para poder tener acceso.</p>
+<p>Si es ingenioso podría intentar saltarse esto intentando hacer un arranque desde un dispositivo USB con por ejemplo alguna distribución de Linux que permite operar sin haberse instalado en el disco duro.</p>
+<p>Esto podría ocurrir sí el orden de arranque está descuidado y configurado para iniciar desde un USB u otro medio de arranque antes que desde un disco duro ( Por ejemplo <a href="https://es.slideshare.net/yenict/quitar-contrasea-de-la-bios-con-hirens-boot-cd" target="_blank">aquí</a> existe una ISO específica llamada Hiren&#39;s Boot que nos permitirá eliminar la contraseña de la BIOS ).</p>
+<p>En mi modelo de placa no puedo desactivar específicamente el arranque USB, pero sí puedo desactivar una opción llamada &#34;<em>Legacy USB Support</em>&#34; para desactivar los USB en el arranque y la BIOS, aunque activando esta opción activada habrá que despedirse de usar teclado y ratón en la UEFI, ya ambos se conectan por USB, solo podríamos operar con un teclado conectado por el antiguo puerto PS/2.</p>
+<p>Podemos seguir los siguientes pasos para desactivarla:</p>
+<ol type="1">
+<li>Desde nuestra pantalla principal en la UEFI seleccionamos <em>Settings</em>:<img alt="MSI_SnapShot_02.bmp" src="img/f8dc9888b98a17aa.bmp"></li>
+<li>Nos vamos a <em>Advanced</em><img alt="MSI_SnapShot_02.bmp" src="img/bae6a2486145626.bmp"></li>
+<li>Dentro de advanced seleccionamos &#34;<em>USB Configuration</em>&#34;<img alt="MSI_SnapShot_02.bmp" src="img/6b96774329bf7a85.bmp"></li>
+<li>Y simplemente marcamos la opción <em>Legacy USB Support</em> como <em>Disabled</em>:<img alt="MSI_SnapShot_02.bmp" src="img/30cb959b11e7efef.bmp"></li>
+</ol>
+<p>Con esto habremos desactivado los puertos USB al iniciar la BIOS e intentar iniciar desde un USB no será una opción para un posible atacante.</p>
+<p>También, para añadir aún más capas de seguridad, podemos modificar el orden de arranque de nuestros dispositivos para que, en casos no controlados, algún atacante logre iniciar desde su USB u otro medio debido a un mal ajuste en esta configuración.</p>
+<p>Lo veremos en la siguiente sección.</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Modificar el orden de arranque" duration="5">
+        <p>Un orden de arranque no configurado adecuadamente puede provocar también varias fallas en la seguridad, como por ejemplo manipular físicamente el equipo aprovechando la prioridad de inicio desde cierto disco duro o por el arranque USB previamente visto.</p>
+<p>Siguiendo estos pasos podemos modificarlo:</p>
+<ol type="1">
+<li>En la UEFI de la placa Mortar Max B450M disponemos de una sencilla interfaz en el menú principal desde el cual podemos fácilmente reordenar los dispositivos arrastrándolos hacia la posición en el orden que más nos interese:<img alt="MSI_SnapShot_02.bmp" src="img/9c56d6a2c13c5135.bmp"></li>
+<li>Y tras reordenarlos, priorizando antes arranques desde discos duros que desde medios extraíbles, tan solo tenemos que guardar los cambios y ya habríamos cambiado el orden.</li>
+<li>También disponemos de la clásica opción de reordenar en <em>Settings/Boot/</em></li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Activar la intrusión de chásis" duration="5">
+        <p>Esta placa tiene la función &#34;Chassis Intrusion&#34; que consiste en una función de algunas placas bases, por ejemplo el modelo Mortar Max B450M con el que se está desarrollando ésta guía, para crear un mensaje de notificación que nos informa de que alguien ha abierto el chásis o caja del ordenador.</p>
+<p>Esencialmente consiste en un sensor que se conecta a un terminal específico de la placa base y detecta cuando se ha abierto nuestra caja.</p>
+<p class="image-container"><img alt="MSI_SnapShot_02.bmp" src="img/37c59bb0a0a84c8c.png"></p>
+<p><em>Este es un ejemplo de cable simple de detección de intrusiones</em></p>
+<p>Para activar esta función tan solo tenemos que hacer lo siguiente:</p>
+<ol type="1">
+<li>Nos vamos a <em>Settings/Security</em> y buscamos &#34;<em>Chassis Intruson Configuration</em>&#34;</li>
+<li>Dentro simplemente activamos la opción y con eso lo tendríamos activado.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Activar el chip TPM" duration="5">
+        <p>El chip TPM (<em>Trusted Platform Module</em>) es un coprocesador criptográfico, comunicado únicamente con el procesador, que puede almacenar claves de cifrado, cifrar contraseñas y archivos de forma más consistente ya que este chip ha sido especialmente diseñado para este propósito.</p>
+<p>Nuestra placa base tiene una función para construir la clave de renocimiento (<em>Endorsement key</em>) para acceder al sistema. Esta clave sirve para autenticarse ante un servidor o servicio en la nube sin exponer la clave de cifrado principal del sistema (En caso de que usáramos Bitlocker, es la clave para cifrar y descifrar los datos).</p>
+<p>Para activarla en nuestra placa base tenemos que hacer lo siguiente:</p>
+<ol type="1">
+<li>Entramos a la BIOS y <em>Settings/Security</em></li>
+<li>Elegimos <em>Trusted Computing</em></li>
+<li>Y marcamos como <em>enable</em> la opción &#34;<em>Security Device Support</em>&#34;</li>
+<li>Y listo con esto ya tendríamos activada una de las funciones más destacables del chip TPM.</li>
+</ol>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Conclusión" duration="2">
+        <p>Con todas estas medidas hemos conseguido realizar un proceso de hardening adecuadamente en nuestra placa base y ahora un posible atacante se verá muy desesperado en caso de que intentase acceder a nuestro equipo de manera ilegítima a través de principalmente el arranque BIOS.</p>
+
+
+      </google-codelab-step>
+    
+  </google-codelab>
+
+  <script src="https://storage.googleapis.com/claat-public/native-shim.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/custom-elements.min.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/prettify.js"></script>
+  <script src="https://storage.googleapis.com/claat-public/codelab-elements.js"></script>
+  <script src="//support.google.com/inapp/api.js"></script>
+
+</body>
+</html>

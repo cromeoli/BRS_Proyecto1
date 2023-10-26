@@ -1,0 +1,26 @@
+{
+  "environment": "web",
+  "format": "html",
+  "prefix": "https://storage.googleapis.com",
+  "mainga": "UA-49880327-14",
+  "updated": "2023-10-26T17:35:51+02:00",
+  "id": "BRSProyecto1",
+  "duration": 52,
+  "title": "Guía para asegurar una UEFI/BIOS",
+  "summary": "Guía para realizar un proceso de hardening o aseguramiento de una UEFI/BIOS",
+  "source": "Asegurar UEFI BIOS.md",
+  "theme": "",
+  "status": [
+    "published"
+  ],
+  "category": [
+    "codelab",
+    "markdown"
+  ],
+  "tags": [
+    "web"
+  ],
+  "feedback": "https://github.com/cromeoli/BRS_Proyecto1",
+  "ga": "ID de Google Analytics",
+  "url": "BRSProyecto1"
+}
